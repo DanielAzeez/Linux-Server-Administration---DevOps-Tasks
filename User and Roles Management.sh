@@ -40,7 +40,7 @@ sudo chmod 750 /var/www/project
 # Check if OpenSSH server is installed
 if ! dpkg -l | grep -q openssh-server; then
     echo "OpenSSH server is not installed. Installing now..."
-    sudo apt update && sudo apt install openssh-server -y
+    sudo apt update && sudo apt install openssh-server
 else
     echo "OpenSSH server is already installed."
 fi
