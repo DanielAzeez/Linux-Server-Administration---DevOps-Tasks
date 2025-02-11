@@ -6,8 +6,9 @@
 
 # Solutions
 
-# 1. Block All Incoming Traffic Except SSH (Port 22) & HTTP (Port 80)
+#!/bin/bash
 
+# 1. Block All Incoming Traffic Except SSH (Port 22) & HTTP (Port 80)
 # Ensure UFW is installed
 sudo apt update && sudo apt install ufw  
 
@@ -28,21 +29,22 @@ sudo ufw status verbose
 
 
 # 2. Checking which ports are currently open on the system
-
 # List open ports with associated services
 sudo ss -tulnp 
 
-# 3. Setting up an SSH Key-based authentication to eliminate password logins
 
+# 3. Setting up an SSH Key-based authentication to eliminate password logins
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 
-# Copy the SSH key to the Remote Server
-ssh-copy-id username@your-server-ip
+# Copy the SSH key to the local Server 
+ssh-copy-id username@your-server-ip #(Run the 'hostname -I' command to find your local server ip)
 
 # Editing the SSH configuration file to eliminate password login on the server
 sudo nano /etc/ssh/sshd_config
+
 # Find and modify these lines or add it if doesn't exist
 PasswordAuthentication no
 PermitRootLogin no
+
 # Restart the SSH service
 sudo systemctl restart ssh

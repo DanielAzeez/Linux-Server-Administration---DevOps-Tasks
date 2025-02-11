@@ -5,6 +5,8 @@
 # Restrict SSH access for two of them, who should only log in locally.
 
 
+# Solutions
+
 #!/bin/bash
 
 # 1. Creating the user accounts and adding them to the 'developers' group 
@@ -19,6 +21,7 @@ for user in User1 User2 User3 User4 User5; do
     sudo passwd "$user"  # Prompt for password setup
 done
 
+
 # 2. Creating the /var/www/project to set read and execute permissions
 # Create the project directory
 sudo mkdir -p /var/www/project
@@ -31,6 +34,7 @@ sudo chown root:developers /var/www/project
 #  - Group (developers) can read and execute (5) but not write
 #  - Others have no permissions (0)
 sudo chmod 750 /var/www/project
+
 
 # 3. Restricting SSH access for two users who should only log in locally
 # Check if OpenSSH server is installed

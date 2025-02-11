@@ -4,6 +4,9 @@
 # A check to ensure it is running properly after installation.
 # The ability to restart it if it crashes.
  
+# Solutions
+
+#!/bin/bash
 
 # 1. Installing and setting up the Nginx service to start automatically on boot
 # Update package lists before installation
@@ -15,8 +18,10 @@ sudo apt install nginx
 # Enable Nginx to start on boot
 sudo systemctl enable nginx  
 
+
 # 2. Check if Nginx is running properly after installation
 sudo systemctl status nginx  
+
 
 # 3. Restarting Nginx if it crashes
 sudo systemctl restart nginx  

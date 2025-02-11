@@ -4,6 +4,11 @@
 # Check the disk usage to ensure logs are not consuming too much space.
 # Monitor real-time system logs to detect anomalies.
 
+
+# Solutions
+
+#!/bin/bash
+
 # 1. Identify the top resource-consuming processes
 top  
 # Press Shift + P (Sort by CPU)  
