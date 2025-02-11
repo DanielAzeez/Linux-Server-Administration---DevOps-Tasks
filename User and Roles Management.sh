@@ -1,6 +1,14 @@
+# User and Roles Management
+# Your company recently hired five new developers who need access to the development server. Your task is to:
+# Create user accounts for them and add them to the developers group.
+# Ensure they have read and execute permissions for /var/www/project but cannot modify files.
+# Restrict SSH access for two of them, who should only log in locally.
+
+
 #!/bin/bash
 
-# Creation of the 'developers' group 
+# 1. Creating the user accounts and adding them to the 'developers' group 
+# Creating the 'developers' group first
 sudo groupadd developers
 
 # Creating five user accounts and adding them to the 'developers' group
@@ -11,6 +19,7 @@ for user in User1 User2 User3 User4 User5; do
     sudo passwd "$user"  # Prompt for password setup
 done
 
+# 2. Creating the /var/www/project to set read and execute permissions
 # Create the project directory
 sudo mkdir -p /var/www/project
 
@@ -23,6 +32,7 @@ sudo chown root:developers /var/www/project
 #  - Others have no permissions (0)
 sudo chmod 750 /var/www/project
 
+# 3. Restricting SSH access for two users who should only log in locally
 # Check if OpenSSH server is installed
 if ! dpkg -l | grep -q openssh-server; then
     echo "OpenSSH server is not installed. Installing now..."
