@@ -40,7 +40,7 @@ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ssh-copy-id username@your-server-ip #(Run the 'hostname -I' command to find your local server ip)
 
 # Editing the SSH configuration file to eliminate password login on the server
-sudo nano /etc/ssh/sshd_config
+sudo nano /etc/ssh/ssh_config
 
 # Find and modify these lines or add it if doesn't exist
 PasswordAuthentication no
