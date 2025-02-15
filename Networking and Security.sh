@@ -44,7 +44,6 @@ sudo nano /etc/ssh/sshd_config
 
 # Find and modify these lines or add it if doesn't exist
 PasswordAuthentication no
-PermitRootLogin no
 
 # Restart the SSH service
 sudo systemctl restart ssh
