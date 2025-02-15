@@ -36,6 +36,8 @@ Your company has hired five new developers who need access to the development se
    ```
    - `-m` creates a home directory for each user.
    - `-g developers` assigns them to the `developers` group.
+     
+![Image](https://github.com/user-attachments/assets/ea2bdf0f-0925-4e3b-92bb-a76f2bfa390d)
 
 ---
 
@@ -54,7 +56,16 @@ Your company has hired five new developers who need access to the development se
    ```
    - `7` (Owner - root): **Read, Write, Execute**  
    - `5` (Group - developers): **Read & Execute** (no write access)  
-   - `0` (Others): **No permissions**  
+   - `0` (Others): **No permissions**
+4. **Check permissions**
+   ```bash
+   sudo ls -ld /var/www/project
+   ```
+![Image](https://github.com/user-attachments/assets/287f937c-ddb2-4c12-934f-818962d8f9db)
+   - `d` (directory) 
+   - `rwx` (Owner's permissions): **Read, Write and Execute** 
+   - `r-x` (Group's permissions): **Read and Execute** (no write permissions)
+   - `0` (Others): **No permissions** 
 
 ---
 
@@ -118,6 +129,8 @@ Your team has reported **server slowness during peak hours**. Your goal is to:
    du -ah /var/log | sort -rh | head -5
    ```
    (The -5 flag returns the first five largest log files. You can replace 5 with the number of log files you want to see.)
+   
+![Image](https://github.com/user-attachments/assets/bd54af0c-c82c-4254-aa36-7bb1db48449b)
 
 ---
 
@@ -156,6 +169,7 @@ sudo apt install nginx
    ```bash
    sudo systemctl status nginx
    ```
+![Image](https://github.com/user-attachments/assets/840cb7d8-25bd-4d0f-b162-66a9dcb798bd)
 
 ---
 
@@ -200,6 +214,7 @@ Security is a **top priority** at HypotheticalCorp. Your task is to:
    ```bash
    sudo ufw status verbose
    ```
+![Image](https://github.com/user-attachments/assets/ad7535eb-ced9-4ea0-af45-fc8050e10f9b)
 
 ---
 
@@ -208,6 +223,8 @@ Security is a **top priority** at HypotheticalCorp. Your task is to:
 sudo ss -tulnp
 ```
 - `-t` (TCP), `-u` (UDP), `-l` (Listening ports), `-n` (Numeric format), `-p` (Processes using ports)
+
+![Image](https://github.com/user-attachments/assets/9acf9f8b-2681-4eb4-92fa-b5656a2cff50)
 
 ---
 
@@ -220,17 +237,21 @@ sudo ss -tulnp
    ```bash
    ssh-copy-id username@your-server-ip
    ```
-   (You can generate your local server ip by running the 'Hostname -I' command.)
-3. **Disable Password Login for SSH**
+   (You can generate your local server ip by running the 'hostname -I' command.)
+   
+![Image](https://github.com/user-attachments/assets/076d50e3-68e9-4689-82af-7966d4c7334c)
+   
+4. **Disable Password Login for SSH**
    ```bash
-   sudo nano /etc/ssh/sshd_config
+   sudo nano /etc/ssh/ssh_config
    ```
    - Modify the following lines:
      ```
      PasswordAuthentication no
-     PermitRootLogin no
      ```
-4. **Restart SSH service**  
+     ![Image](https://github.com/user-attachments/assets/df01dcc1-da01-4bbf-905b-ebbefdfc29ee)
+     
+5. **Restart SSH service**  
    ```bash
    sudo systemctl restart ssh
    ```
